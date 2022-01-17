@@ -1,0 +1,208 @@
+ ------------------  A short Numpy introduction-------------------------
+Numpy is faster than lists which is why it is preferable to use over lists
+(lists store more information and thus require a lot more space in memory, which makes them slower to read).
+
+Also there is no type chekcing when iterating through objects.
+
+Numpy also utilises contiguous memory.
+( the memory blocks are not scattered around in the computer's memory like in a list, where there pointers are used to point to other 
+elements of a list). This makes information faster to find because you
+do not need to jump aroumd in the computer's memory.
+
+Numpy can be seen as a MATLAB replacement. Backend of Pandas,
+
+------------------------------------------------------------------------------------------------------------
+
+to use numpy Import the Numpy library
+
+import numpy as np
+
+to initialise an array, just type:
+a = np.array()
+
+and then pass in a list. So this is a 1d array containing the numbers 1,2,3
+
+a = np.array([1,2,3])
+
+can initilaise more complex arrays: like a 2d aray:
+
+b = np.array([1,2,3],[4,5,6])
+
+to get the dimensions of array a just write
+
+a.ndim
+(output is 1)
+b.ndim
+(output is 2)
+
+
+a.shape()
+3   (as this is a 1,3 vector)
+
+b.shape()
+(2,3) as this is a matrix with 2 rows and 3 columns
+
+-------------------------------------------------------------------------------------------------------
+
+Accessing and changing elements, rows, columns
+a = np.array([[1, 2, 3, 4, 5], [6, 7, 8, 9, 10]])
+
+to get a specific element we can use the notation [r, c]  (row, column)
+remember that we start pyton indexing at 0, so this the first row and columsna re the 0th rows and columns
+
+so to access the 7 in the above array we would type:
+a[1, 1]
+
+(like with lists you can use the negative notation)
+
+to get a specific row,  we (liek teh first row, we just type 0 to indicate the first row and the use basci index slicing notation 
+to indicate that we want the whole row:
+
+a = [0, ::]
+
+would yield: [1, 2, 3, 4, 5]
+
+
+array [ start index, end index, step]  exaclty like in lists
+
+
+CHANGING ELEMENTS IN THE MATRIX:
+to change elements in the matrix ( say the second number in the second, row which is a 7, you would type:
+
+a[1,1] = 20
+
+to set it equal to 20
+
+so now the array reads: 
+
+a = np.array([[1, 2, 3, 4, 5], [6, 20, 8, 9, 10]])
+
+You can do the same thing for an entire series of numbers using colons just like in lists.
+------------------------------------------------------------------------------------------------------------------------------
+Initialising different ararys:
+
+#all 0s matrix:
+
+c = np.zeros (5) will give me a vector of 5 columns of just fives
+for a 2,2 dimensional array i would tuupe:
+
+c = np.zeros (2,2 )
+
+
+I can create an array full of ones in a similar fashion by using np.ones()
+
+To fill a matrix with numbers that are not 1 or 2 I can use the "full"" function.
+
+d = np.full((2,2), 99) to create a 2x2 matrix full of 99s.
+
+
+
+to initialise an array full of random numbers, just write np.random(4,2)
+to create a 4x 2 matrix full of randmon numbers between 0 and 1.
+
+to create random integer numbers:
+
+np.random9randint(start value, size(size of matrix))
+
+np.arandom.randint(7, size= (3,3))
+
+for the identity matrxi just pass in teh number of dimensions:
+
+np.identity(5) for the 5x5 matrix.
+
+to repeat an array+ say a = np.array([1,2,3]) just write:
+
+e = np.repeat(a, 4) to repeat array a 4 times
+to get [1,1,1,1,2,2,2,2,3,3,3,3]
+
+------------------------------------------------------------------------------------------------------------------------
+initializing an array:
+
+putthing everything together to create this matrix:
+
+[[0. 0. 0. 0. 0. 0. 0.]
+[0. 1. 1. 1. 1. 1. 0.]
+[0. 1. 1. 1. 1. 1. 0.]
+[0. 1. 1. 5. 1. 1. 0.]
+[0. 1. 1. 1. 1. 1. 0.]
+[0. 1. 1. 1. 1. 1. 0.]
+[0. 0. 0. 0. 0. 0. 0.]]
+
+
+first  create a 7x7 matrix of all 0s:
+output = np.zeros((7,7))
+
+then create another 5x5 matrix of just 1s:
+
+z = np.ones((5, 5))
+next, change the middle element of this matrix to a 5:
+
+z[2, 2] = 5
+
+then let this matrix be the middle of our first matrix:
+
+output[1:-1, 1:-1] = z
+
+
+--------------------------------------------------------------------------------------------------------------------------------------
+Copying arrays:
+when copying arays 
+a = array([1,2,3])
+
+if we set b=a
+and then write b[1]= 20
+when we print a, this will be displayed:
+
+a = array([1,20,3])
+
+a will be changed as well because by writing "a = b" we are saying taht b and a point to the same object.
+To rpevent that from happening we need to use the copy method:
+
+b = a.copy()
+ to create e brand new copy of a. (so be now does not point to array a, it points to a copy of it, which is a different object.)
+ ----------------------------------------------------------------------------------------------------------------------------------
+ 
+ Mathematics:
+ 
+ element wise addition and subtraction:
+ 
+ a = np.array([1,2,3,4])
+ 
+ a + 2
+ yields
+ a = [3,4,5,6]
+ 
+ a - 2
+ yields
+a = [-1,0,1,2]
+
+a * 2 yields:
+
+a = [2,4,6,8]
+
+a/2
+
+a = [0.5,1,1.5,2]
+
+
+can take, sins, cos, ** (all these operations are element wise)
+
+matrix multiplicaiton:
+
+suppose we have two matrices
+ a = np.ones((2,3))
+ b = np.full((2,3),2)
+ 
+ to multiply tehm togetehr use
+ np.matmul((a,b))
+
+
+
+
+
+
+
+
+
+
+
