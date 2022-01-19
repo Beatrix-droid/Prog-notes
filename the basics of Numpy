@@ -193,9 +193,96 @@ suppose we have two matrices
  a = np.ones((2,3))
  b = np.full((2,3),2)
  
- to multiply tehm togetehr use
+ to multiply them together use
  np.matmul((a,b))
+ 
+ #find the determinant
+ to find the determinate of a matrix use the function np.linalg.det()
+ 
+ex c = np.identity(3)
+np.linalg.det(c)
 
+(there is functionality on eigenvalues, iinverse and whatnot
+
+---------------------------------------------
+ statistics with numpy:
+ 
+ stats =  np.array([1,2,3][4,5,6])
+ 
+ to find the minimum/maximum just do np.min(stats) --> 1
+ np.max(stats) ---> 6
+ you can also do it on a row basis (if you set axis = 1)
+ np.min(stats, axis=1)  (this will give me the minn of the first row and the min of the second row
+ so the output is [1,4]
+ 
+ (same thing goes for max)
+ 
+ 
+ np.sum(stats)  to get the sum of all rows and colums
+
+np.sum(stats, axis=0)
+will add up all the terms going downwards so the output is [5, 7,9]
+---------------------------------------------------------------------------------------------------------------------
+
+Reorganising arrays:
+
+say we have
+before =  np.array([[1,2,3,4][5,6,7,8]])
+and this is a 2 by 4 matrix
+
+[1 2 3 4]
+[5 6 7 8]
+
+if we wanted to make it something else we can do
+
+after = before.reshape(8,1) to reshape it into an array with 8 rows and 1 colimn:
+
+[1]
+[2]
+[3]
+[4]
+[5]
+[6]
+[7]
+[8]
+
+
+you can even pass it as a after = before.reshape(2,2,2) and turn it into a 3d matrix!
+
+as long as the original matrix has values to spare for the dimension. (in this case it would be 2^3 =8 and our original matrix did have 8 values)
+
+
+#vertically stacking vectors or matrices:
+v1 = np.array([1 2 3 4])
+v2 =  np.array([5 6 7 8])
+
+we can stack these arrays to form a single matrix
+np.vstack(v1, v2) ----->
+
+array([[ 1, 2, 3 4]
+      [5, 6, 6, 8]])
+      
+      you can even create copies (supposed you wanted to stack vectors creatinga  copy of the second row:
+      
+      np.vstack(v1, v2, v2) ----->
+
+
+array([[ 1, 2, 3 4]
+      [5, 6, 6, 8]
+       [5, 6, 6, 8]])
+       
+       
+  #horizontal stacks are very similar
+  
+    h1 = np.ones((2,4))
+    h2= np.zeros((2,2))
+    
+    np.hstack(h1,h1) yields:  array([[1,1,1,1, 0, 0],
+                                      [1,1,1,1,0,0]])
+    
+
+----------------------------------------------------------------------------------------------------------------
+Loading data froma  file and advanced indexing
 
 
 
