@@ -343,14 +343,33 @@ To access the values of this matrix
 [0. 1. 1. 1. 1. (1).( 0).]
 [0. 0. 0. 0. 0. (0.) (0.)]]
 
+---------------------------------------------------------------------------------------------------------------------
+ Boolean arrays
  
+ Suppose we have an array a = np.array([1,2,3,,4])
  
+ and we wnated to sleecte the first and last terms of this array. One way to do this would be the pure python way:
  
+ a[0], a[-1]  that would yield 1, 4
+
+then there is the numpy multiindexing way:
+
+a[0, -1] which would also yield 1, 4.
+
+
+
+Bu there is a third way, using Boolean arrays:
+ Boolean arrrays represent our arrays
  
+a[[True, False, False, True]]   where the numbers that I want to select correspond to True, and the numbers I don't want correspond to false.
+
+[1, 4]
+
+This is particularly useful for selecting large quantities of data:
+
+a[a=>2]  yields aarray([ False, True, True,  True])
  
- 
- 
- 
+ This is very useful for filtering arrays and entering a condition!
  
  
  
