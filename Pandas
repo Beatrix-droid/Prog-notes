@@ -1,0 +1,143 @@
+An introduction to pandas
+
+Loading our csv file, called sales_data.csv and located in the "data" folder:
+
+sales = pd.read_csv("data/sales_data.csv", parse_date = ["Date"])
+
+each column has a strict data type.
+
+
+sales.shape() tells us how many rows and columns we have
+
+sales.info() tells the columns names we are working with and the data type each of these columns contains
+
+
+The sales.describe() gives us an idea and a set of averagers taken from all the columns of the df that have numerical values
+---------------------------------------------------------------------------------------------------------------
+
+Pandas Series
+
+As series is an ordered and index sequence of elements. (looks a lot like a python list).
+The underlying structure of this data structure is a numpy array
+
+You can change the index of this series, and is still ordered.
+(sort of similar to an ordered dict).
+
+import pandas as pd
+
+certificates_earned = pd.Series(
+    [8, 2, 5, 6],
+    index=['Tom', 'Kris', 'Ahmad', 'Beau']
+)
+
+print(certificates_earned)
+#prints out Kris     2
+Tom      8
+Kris     2
+Ahmad    5
+Beau     6
+dtype: int64
+
+----------------------------------------------------------------------------------------------------------------------
+
+#Indexing and conditional selection:
+
+can access certificates_earned ["Tom"] to get 8   (works just like a dict)
+
+Use the "loc" function to locate elememnts in a particular position:
+
+certificates_earned.iloc[-1] to get 6
+
+These series also support multiindexing as this module is built on top of numpy:
+
+
+UPPER LIMIT INDEXING IS INCLUDED IN PANDAS unlike traditional python.#
+
+
+and you can still use boolean arrays on series:
+
+certificates_earned  > 5 yields:  
+Tom      8
+Beau     6
+dtype: int64
+
+
+
+Tom      True
+Kris     False
+Ahmad    False
+Beau     True
+dtype: int64
+
+
+------------------------------------------------------------------------------------------------------------
+Selecting values in a dataframe:
+
+givena  dataframe, we are going to select by index using teh iloc method.
+Loc lets you select rows by index.
+
+certificates_earned .loc["Ahmad"] yields 5
+
+Iloc will let you select rows by position:
+
+certificates_earned .iloc[-1] yields 6
+
+Without using Iloc, or loc, you are slecting that entire row or column:
+
+ceritifates_earned["name]" give you: 
+Tom      
+Kris     
+Ahmad    
+Beau   
+
+all the things being returned are series.
+
+
+import pandas as pd
+
+certificates_earned = pd.DataFrame({
+    'Certificates': [8, 2, 5, 6],
+    'Time (in months)': [16, 5, 9, 12]
+})
+
+certificates_earned.index = ['Tom', 'Kris', 'Ahmad', 'Beau']
+
+print(certificates_earned.iloc[2])
+
+will print  Certificates        5
+Time (in months)    9
+Name: Ahmad, dtype: int64
+
+So use the naked data frame to select columns and loc and iloc to select rows.
+--------------------------------------------------------------------------------------------------------------
+
+Conditional selection and modifying dataframes
+
+To drop a column just drop by index or colum :
+
+certificates_earned.drop[column="certificates"]
+certificates_earned.drop["Ahmned"]
+
+This will create a new dataframe without these columns, but the original df is not modified.
+
+
+    ADDING COLUMNS
+To create a new column is as simple as creatinga  new dict key: 
+
+stars = pd.Series([1,2,3,4])
+
+certificates_earned["stars eraned"] = stars
+
+to insert the start column in the df
+
+CHANGING COLUMNS
+to change a column you change it just like a dict:
+
+certificates_earned["stars eraned"] = "5"
+to set all the values in that column equal to the string 5
+
+
+
+
+
+
