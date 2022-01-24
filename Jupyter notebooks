@@ -1,0 +1,49 @@
+A quick reference for jupyter notebooks
+
+Jupyter is a free an open source ecosystem of multiple tools.
+
+The difference between jupyter notebooks and jupyter labs is that Jupyter lab is a nicer interface on top of jupyter notebooks
+It adds tree views, get tools and multple other  things.
+
+
+Why use jupyter notebooks? because it is an interactive real time environment to produce or to explore our data and do our data analysis
+You can fire commands and it will immediately respond back.
+
+
+A jupyter notebook is a sequence of multiple cells.
+We can either have markdown cells or code cells.
+Everything happens in a cell
+
+
+You can also generate a pdf report out of the nb once you have finished wthe analysis and want to share the docs.
+
+Each sell has an execution number. (even if yexecute a cell and then move it around you will seen that the execution
+number does not change)
+--------------------------------------------------------------------------------------------------------------------------
+keyboard shortcuts
+
+To add a new cell, just type A
+Press B to create a new cell below
+do delete a cell is 2 x the D key
+
+To switch from enter mode (entering commands) and command mode (addi,g/deleting cells) you use the escape key.
+To swtich from command mode and enter mode just use the enter key.
+
+
+Use arrow keys to move up and down in the notebook.
+
+To switch from python to markdown cells hit m. To switch from markdown to python hit the y key.
+
+
+To run code but stay in the same cell, keep Ctrl pressed whilst hitting the return key.
+
+
+By using shift and return I will execute code and then swithc immediately down to the next block of code.
+
+To undo the previosuuly issued command, just press the "z" key.
+
+
+To cut cells press X to cut it and V to paste it wherever you are currently at.
+Ti copy the cell press C.
+
+                       
