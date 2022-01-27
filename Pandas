@@ -140,9 +140,10 @@ to set all the values in that column equal to the string 5
 -----------------------------------------------------------------------------------------------------------------
 Conditional selection and modifying dataframes
 
+Can use boolean matching on data frames as well. After all., a Dataframe is a collection of Series
 
 
-
+df["population"]> 70  will sort, coountries on a dataframe have a popoluation less than 70.
 
 
 
