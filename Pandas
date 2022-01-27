@@ -145,14 +145,28 @@ Can use boolean matching on data frames as well. After all., a Dataframe is a co
 
 df["population"]> 70  will sort, coountries on a dataframe have a popoluation less than 70.
 
+Droppping stuff:
+df.drop("canada") will drop the canada row this is dropping by index.
+
+You can also drop by columns by using the columsn argument:
+
+df.drop(columns = {"populatio", "hid"])
+
+----------------------------------------------------------------------------------------
 
 
 
+df.head() shos you the first 5 rows of the dataframe
+df.tails() shows you the last 5 rows of the dataframe
+df.shape() shows you the shape of the dataframe
+df.types shows you the type of objects present in the dataframe
 
 
+often time stamps are descirbed as objects and not as time objects . To oconvert this data type into a datetime object, we 
+use the function 
+pd.to_datetime(df["timestamps"])
 
-
-
+so tha tdf["timestamp"] = pd.to_datetime(df["timestamps"])
 
 
 
