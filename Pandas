@@ -167,7 +167,31 @@ use the function
 pd.to_datetime(df["timestamps"])
 
 so tha tdf["timestamp"] = pd.to_datetime(df["timestamps"])
+-------------------------------------------------------------------------------------------------------------------------
 
+Cleaning data:
+
+there are various thigns we need to consider when we recieve raw data that needs to be clean:
+
+first: is there any missing data? any values missing in the dataframe?
+this is usually the easisest thing to spot in a dataframe and the easiest to fix.
+
+Secondly we could have invalid values. For example a string could be stored in a "price" column that is only meant to upset integers
+
+the third and more difficult problem is a problem of domain:
+
+one could have the age of a customer be "170". These domain problems are mroe difficult to detect because 170 is a perfectly 
+valid integer that fits in the "age " column. Its only that it is rather unlikely for a customer to reach 170 years of age.
+
+We know that this value is wrong because we age is a concept that is relatable to all human beings, and we all have a rough
+idea of how long human beings age.
+
+
+However, if rather than "age" we had "whiteblood cells ber 100ml/blood" if we didn't have a background in medicine, it would 
+be a lot more difficutl to detect if any values in this hypothetical column were drastically out of the domain.
+
+
+So, unlike the other two problems, this domain problem requires a fundamental bacgrkound understanding of the data it contains itself.
 
 
 
