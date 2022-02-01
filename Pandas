@@ -193,15 +193,36 @@ be a lot more difficutl to detect if any values in this hypothetical column were
 
 So, unlike the other two problems, this domain problem requires a fundamental bacgrkound understanding of the data it contains itself.
 
+ ----------------------------------------------------- NULL VALUES-------------------------------------------------------
+
+every method that pandas uses to identify null objects is built on top of numpy. Numpy has the object nan (not a number)
 
 
+isnull and isna are the same in pandas.
+isnull will say evaluate to true or false depending if the value is null.
+notnull will yields true if the value is not null
+
+These methods also work on enetire series, and the result back will say which values of the series are null or not null.
+
+isnull().sum() will return a count of how many null values are in the dataframe.
 
 
+can use these methods to filter out all the nonnull values in a df:
+
+s[s.notnull()]
+
+if we wanted to drop the null values from the dataframe, the simplest way to do this would be to use the dropna() method
+s = s.dropna()
 
 
+All these methods are immutable. The orginal series is not being modified, rather a new series is being created
+---------------------------------------------------------------------------------------------------------------------
+                            
+                            Data cleaning with dataframes
 
-
-
+These methods work also on dataframes.
+But the way that dropna works on dataframes is that it will drop an entire row if the row contains at least 1 null value.
+You can switch it to dropping the entire column that has null values by switching the axis: dropna(axis=1)
 
 
 
