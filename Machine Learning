@@ -1,0 +1,18 @@
+Machine learning fundamentals:
+
+machine learning will look at the input data and the output data and will try to get the rules that turned the input into the output.
+Rather than giving the program the rules, teh algorithm finds the rules for us.There are two layers. An input, the algorithm and the output.
+
+A neural network is a form of machine learning that uses a layered representation of data.
+The inputted data is transformed multiple times before an output is spitted out.
+
+
+features are the input variables (or input information)
+The label is the output.
+------------------------------------------------------------------------------------------------------------
+Introduction to tensors and core machine learning algorithms:
+
+A tensor is a generalised vector to higher dimensions
+
+Linear regression is one of the most basic forms of machine learning and is used to predict numeric values. It looks for a linear correspondence.
+Usinga  line of best fit we can predict future vaules.
